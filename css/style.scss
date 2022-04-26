@@ -1,0 +1,149 @@
+@font-face {
+font-family: "Le Murmure";
+src: url("../font/LeMurmure.woff") format("woff"),
+        url("../font/LeMurmure.woff2") format("woff2");
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+
+$orangeclair: #FEE7CE;
+$orangefonce: #FFCB93; 
+$black: rgb(11, 11, 11);
+
+.display_flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+//CLASS BUTTON
+.button{
+    background-color: transparent;
+    border: solid 1px rgb(255, 255, 255);
+    padding: 10px;
+    width: 100px;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Montserrat';
+    transition: all 100ms linear;
+    box-shadow: inset 0em 0em white;
+    position: relative;
+
+
+    &:hover{
+        cursor: pointer;
+        box-shadow: inset 8em 0em white;
+    }
+
+    &::before{
+        content: '💥';
+        position: absolute;
+        color: $black;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        opacity: 0;
+        transition-delay: 2000ms;
+        transition: all 200ms linear; 
+    }
+
+    &:hover::before{
+        opacity: 1;
+    }
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+    background-color:$black ;
+    color: white;
+    font-family: 'Montserrat';
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+   .form_container{
+       
+
+       h1{
+        font-family: 'Le Murmure';
+        font-size: 4rem;
+        margin: 0;
+        padding: 0;
+       }
+
+       .form{
+        justify-content: space-between;
+        gap: 40px;
+        input{
+            background-color: transparent;
+            border: solid 1px rgb(255, 255, 255);
+            padding: 20px 10px;
+            width: 300px;
+            border-radius: 5px;
+            color: white;
+            font-family: 'Montserrat';
+ 
+            &::placeholder {
+             color: rgba(255, 255, 255, 0.712);
+             font-family: 'Montserrat';
+           }
+ 
+           &:focus{
+               outline: none;
+           }
+        }
+       } 
+    }
+
+    .confirmation{
+        text-align: center;
+
+        a{
+            color: #5e27c3;
+            font-weight: bold;
+            text-decoration: none;
+
+            &:hover{
+                cursor: pointer;
+                text-decoration: underline;
+            }
+        }
+        
+    }
+
+    .alert{
+        position: absolute;
+        top: 8%;
+        padding: 10px 20px;
+        border: solid 1px rgb(205, 38, 38);
+        border-radius: 5px;
+        color: rgb(205, 38, 38) ;
+    }
+    .logo{
+        position: absolute;
+        bottom: 0;
+
+        img{
+            width: 50px;
+            animation: rotating 5s linear infinite;
+        }
+
+        @keyframes rotating {
+            from{
+                -webkit-transform: rotate(0deg);
+            }
+            to{
+                -webkit-transform: rotate(360deg);
+            }
+        }
+    }
+}
