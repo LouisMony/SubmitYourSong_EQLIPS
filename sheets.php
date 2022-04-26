@@ -23,11 +23,20 @@
     </div>
 
     <?php
-
+        $range = "page1";
         $name = $_POST['name'];
         $link = $_POST['link'];
         $insta = $_POST['insta'];
         $message = $_POST['message'];
+        $categorie = $_POST["Categorie"];
+
+        if($categorie == "ligue"){
+            $range = "page1";
+        }
+        else if ($categorie == "ecouteprod"){
+            $range = "page2";
+        }
+
 
         require __DIR__ . '/vendor/autoload.php';
 
@@ -40,7 +49,7 @@
         $service = new Google_Service_Sheets($client);
         $spreadsheetId = "1rgQRABB1St2nuEKJ4crQB7pR_ZCvlCRU-IfU8Z6Z8aI";
 
-        $range = "page1";
+        
         
         $values = [
             [$name, $insta, $link, $message ]
